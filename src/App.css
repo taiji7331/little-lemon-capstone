@@ -13,9 +13,13 @@ body {
   box-sizing: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .title, .price {
   font-family: 'Markazi Text';
   font-weight: 500;
+}
+
+h1 {
+  color: #F4CE14;
 }
 
 p {
@@ -23,6 +27,59 @@ p {
   font-weight: 400;
   line-height: 1.5;
   color: #495E57;
+}
+
+.title {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 14pt;
+  color: #EE9972;
+  font-weight: bold;
+}
+
+.jumbotron {
+  padding: 40px 10px 40px 10px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  background: #495E57;
+  color: white;
+  position: relative;
+}
+
+.jumbotron img {
+  width: 40vh;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 16pt;
+  position: absolute;
+}
+
+.jumbotron p {
+  color: white;
+}
+
+.card {
+  border-radius: 16pt;
+  background: #EDEFEE;
+}
+
+.card img {
+  width: 100%;
+  height: 30vh;
+  border-radius: 16pt 16pt 0 0;
+  object-fit: cover;
+}
+
+.button {
+  background-color: #F4CE14;
+  color: black;
+  border-radius: 16pt;
+  font-family: 'Karla';
+  font-weight: 500;
+  width: auto;
 }
 
 .row-header {

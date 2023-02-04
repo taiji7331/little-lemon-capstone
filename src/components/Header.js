@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import Logo from '../images/Logo.svg';
 import {Nav, Navbar, NavbarToggler, NavbarBrand, Collapse, NavItem, Button,
   Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
+import {LinkContainer} from 'react-router-bootstrap';
 
 class Header extends Component {
 
@@ -40,36 +42,38 @@ class Header extends Component {
   render() {
     return (
       <Navbar expand='lg'>
-        <NavbarBrand className="mr-auto" href="/">
-          <img src={Logo} alt="Little Lemon Restaurant" />
-        </NavbarBrand>
+        <LinkContainer to="/">
+          <NavbarBrand className="ml-auto offset-1">
+            <img src={Logo} alt="Little Lemon Restaurant" />
+          </NavbarBrand>
+        </LinkContainer>
         <NavbarToggler onClick={this.toggleNav} />
         <Collapse isOpen={this.state.isNavOpen} navbar>
-          <Nav className="me-auto" navbar>
+          <Nav navbar>
             <NavItem>
-              <a className="nav-link" href="/home">
+              <Link to="/" className="nav-link">
                 <span className="fa fa-home fa-lg"></span> Home
-              </a>
+              </Link>
             </NavItem>
             <NavItem>
-              <a className="nav-link" href="/about">
+              <Link to="/about" className="nav-link">
                 <span className="fa fa-info fa-lg"></span> About
-              </a>
+              </Link>
             </NavItem>
             <NavItem>
-              <a className="nav-link" href="/menu">
+              <Link to="/menu" className="nav-link">
                 <span className="fa fa-list fa-lg"></span> Menu
-              </a>
+              </Link>
             </NavItem>
             <NavItem>
-              <a className="nav-link" href="/reservations">
+              <Link to="/reservations" className="nav-link">
                 <span className="fa fa-bell fa-lg"></span> Reservations
-              </a>
+              </Link>
             </NavItem>
             <NavItem>
-              <a className="nav-link" href="/order">
+              <Link to="/order" className="nav-link">
                 <span className="fa fa-shopping-bag fa-lg"></span> Order Online
-              </a>
+              </Link>
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import Logo from '../images/Logo.svg';
 
 const Footer = () => {
@@ -7,17 +8,27 @@ const Footer = () => {
       <div className="container">
         <div className="row justify-content-center">
           <img className="col-12 col-sm-2" src={Logo} alt="Little Lemon Restaurant" />
-          <div className="col-6 col-sm-4">
+          <div className="col-auto offset-sm-2">
             <h5>Doormat Navigation</h5>
             <ul className="list-unstyled">
-              <li><a className="nav-link" href="/home">Home</a></li>
-              <li><a className="nav-link" href="/aboutus">About</a></li>
-              <li><a className="nav-link" href="/menu">Menu</a></li>
-              <li><a className="nav-link" href="/contactus">Reservations</a></li>
-              <li><a className="nav-link" href="/contactus">Order Online</a></li>
+              <li>
+                <Link to="/" className="nav-link">Home</Link>
+              </li>
+              <li>
+                <Link to="/about" className="nav-link">About</Link>
+              </li>
+              <li>
+                <Link to="/menu" className="nav-link">Menu</Link>
+              </li>
+              <li>
+                <Link to="/reservations" className="nav-link">Reservations</Link>
+              </li>
+              <li>
+                <Link to="/order" className="nav-link">Order Online</Link>
+              </li>
             </ul>
           </div>
-          <div className="col-6 col-sm-6">
+          <div className="col-auto offset-sm-2">
             <h5>Contact</h5>
             <address>
               111 Main St.<br />
@@ -25,8 +36,8 @@ const Footer = () => {
               60007 USA<br />
               <i className="fa fa-phone fa-lg"></i>: +1 (234) 567-8910<br />
               <i className="fa fa-fax fa-lg"></i>: +1 (234) 567-8911<br />
-              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">
-                confusion@food.net
+              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:littlelemon@food.net">
+                littlelemon@food.net
               </a>
             </address>
           </div>
@@ -48,7 +59,7 @@ const Footer = () => {
               <a className="btn btn-social-icon btn-google" href="http://youtube.com">
                 <i className="fa fa-youtube"></i>
               </a>
-              <a className="btn btn-social-icon" href="mailto:">
+              <a className="btn btn-social-icon" href="mailto:littlelemon@food.net">
                 <i className="fa fa-envelope-o"></i>
               </a>
             </div>
