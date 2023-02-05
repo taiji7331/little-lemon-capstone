@@ -1,13 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import {Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
 import Food from '../images/restauranfood.jpg';
 
 function CallToAction() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  }
 
   return(
     <section className="jumbotron">
@@ -17,8 +13,8 @@ function CallToAction() {
             <h1>Little Lemon</h1>
             <h2>Chicago</h2>
             <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-            <Button className="button" onClick={toggleModal}>
-              Reserve a Table
+            <Button className="button">
+              <Link to="/reservations" className="nav-link">Reserve a Table</Link>
             </Button>
           </div>
           <div className="col-5 offset-1 d-none d-sm-block">

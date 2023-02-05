@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import {Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
 import CallToAction from './CallToAction';
 import Special from './Special';
 import Bruschetta from '../images/bruchetta.svg';
@@ -29,19 +30,13 @@ function Home(props) {
     },
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  }
-
   return(
     <div className="container">
       <CallToAction />
       <section className="row align-items-start mt-5">
         <h2 className="col-auto">This week's specials!</h2>
-        <Button className="button float-right" onClick={toggleModal}>
-          Online Menu
+        <Button className="button">
+          <Link to="/menu" className="nav-link">Online Menu</Link>
         </Button>
         <div className="w-100"></div>
         {dishes.map((dish) => (

@@ -13,7 +13,7 @@ body {
   box-sizing: inherit;
 }
 
-h1, h2, h3, h4, h5, h6, .title, .price {
+h1, h2, h3, h4, h5, h6, .title, .price, .delivery {
   font-family: 'Markazi Text';
   font-weight: 500;
 }
@@ -22,9 +22,12 @@ h1 {
   color: #F4CE14;
 }
 
-p {
+p, .delivery {
   font-family: 'Karla';
   font-weight: 400;
+}
+
+p {
   line-height: 1.5;
   color: #495E57;
 }
@@ -38,6 +41,12 @@ p {
   font-size: 14pt;
   color: #EE9972;
   font-weight: bold;
+}
+
+.link {
+  font-size: 12pt;
+  text-decoration: none;
+  color: black;
 }
 
 .jumbotron {

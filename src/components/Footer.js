@@ -12,19 +12,19 @@ const Footer = () => {
             <h5>Doormat Navigation</h5>
             <ul className="list-unstyled">
               <li>
-                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/" className="link">Home</Link>
               </li>
               <li>
-                <Link to="/about" className="nav-link">About</Link>
+                <Link to="/about" className="link">About</Link>
               </li>
               <li>
-                <Link to="/menu" className="nav-link">Menu</Link>
+                <Link to="/menu" className="link">Menu</Link>
               </li>
               <li>
-                <Link to="/reservations" className="nav-link">Reservations</Link>
+                <Link to="/reservations" className="link">Reservations</Link>
               </li>
               <li>
-                <Link to="/order" className="nav-link">Order Online</Link>
+                <Link to="/order" className="link">Order Online</Link>
               </li>
             </ul>
           </div>
