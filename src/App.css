@@ -91,6 +91,30 @@ p {
   width: auto;
 }
 
+.form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
+}
+
+datalist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  writing-mode: sideways-lr;
+  max-width: 200px;
+}
+
+input[type="range"] {
+  max-width: 200px;
+  width: 100%;
+  margin: 0;
+}
+
+option {
+  padding: 0;
+}
+
 .row-header {
   margin: 0px auto;
   padding: 0px auto;
