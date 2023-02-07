@@ -1,31 +1,18 @@
-import React from "react";
-import { useFormik } from "formik";
-import * as Yup from 'yup';
+import React, {useState} from "react";
 import {Button, Label, Form, FormGroup, Input, FormFeedback} from 'reactstrap';
 
-const Reservation = () => {
-  const formik = useFormik({
-    initialValues: {
-      date: "",
-      time: "17:00",
-      guests: "",
-      occasion: "Birthday"
-    },
-    onSubmit: (values) => {
-      handleSubmit(values);
-    },
-    validationSchema: Yup.object({
-      date: Yup.string().required('Required'),
-    }),
-  });
+const ReservationForm = (props) => {
 
-  const handleSubmit = (values) => {
-    alert("Date: " + values.date.value + " Time: " + values.time.value
-      + " Guests: " + values.guests.value + "Occasion: " + values.occasion.value);
-    formik.resetForm();
-  };
+  const [date, setDate] = useState("");
 
-  const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+  const [guests, setGuests] = useState("1");
+
+  const [occasion, setOccasion] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`Date: ${date}\nTime: ${props.time}\nGuests: ${guests}\noccasion: ${occasion}`)
+  }
 
   const occasions = ['Birthday', 'Anniversary'];
 
@@ -34,30 +21,31 @@ const Reservation = () => {
   ));
 
   return(
-    <Form onSubmit={formik.handleSubmit} className="form">
+    <Form onSubmit={handleSubmit} className="form">
       <FormGroup>
         <Label for="date">Choose a date</Label>
-        <Input type="date" name="date" id="date"
-          invalid={formik.errors.date && formik.touched.date}/>
-        <FormFeedback>{formik.errors.date}</FormFeedback>
+        <Input type="date" name="date" id="date" onChange={(e) => [setDate(e.target.value), props.dispatch({date: e.target.value})]}
+          />
+        <FormFeedback></FormFeedback>
       </FormGroup>
       <FormGroup>
         <Label for="time">Choose a time</Label>
-        <Input type="select" name="time" id="time">
-          {availableTimes.map( (x,y) =>
+        <Input type="select" name="time" id="time" onChange={(e) => props.setTime(e.target.value)}>
+          {props.times.map( (x,y) =>
             <option key={y}>{x}</option> )}
         </Input>
       </FormGroup>
       <FormGroup>
         <Label for="guests">Number of guests</Label>
-        <input type="range" list="values" name="guests" id="guests" min="1" max="10" />
+        <input type="range" list="values" name="guests" id="guests" min="1" max="10" value={guests}
+          onChange={(e) => setGuests(e.target.value)}/>
         <datalist id="values">
           {guestLabels}
         </datalist>
       </FormGroup>
       <FormGroup className="form-group">
         <Label for="occasion">Occasion</Label>
-        <Input type="select" name="occasion" id="occasion">
+        <Input type="select" name="occasion" id="occasion" onChange={(e) => setOccasion(e.target.value)}>
           {occasions.map( (x,y) =>
             <option key={y}>{x}</option> )}
         </Input>
@@ -69,4 +57,4 @@ const Reservation = () => {
   );
 }
 
-export default Reservation;
+export default ReservationForm;

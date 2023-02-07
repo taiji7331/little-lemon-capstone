@@ -1,11 +1,11 @@
 import React from "react";
 import ReservationForm from './ReservationForm';
 
-const Reservation = () => {
+const Reservation = (props) => {
   return(
     <div className="container">
       <h1>Reserve a Table</h1>
-      <ReservationForm />
+      <ReservationForm times={props.times} time={props.time} setTime={props.setTime} dispatch={props.dispatch} />
     </div>
   );
 }
