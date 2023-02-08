@@ -9,19 +9,19 @@ const ReservationForm = (props) => {
 
   const [occasion, setOccasion] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(`Date: ${date}\nTime: ${props.time}\nGuests: ${guests}\noccasion: ${occasion}`)
-  }
-
   const occasions = ['Birthday', 'Anniversary'];
 
   const guestLabels = [...Array(10),].map((e, i) => (
     <option id={i + 1} key={i + 1}>{i + 1}</option>
   ));
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    props.submit(date, props.time, guests, occasion)
+  }
+
   return(
-    <Form onSubmit={handleSubmit} className="form">
+    <Form onSubmit={(e) => handleSubmit(e)} className="form">
       <FormGroup>
         <Label for="date">Choose a date</Label>
         <Input type="date" name="date" id="date" onChange={(e) => [setDate(e.target.value), props.dispatch({date: e.target.value})]}
