@@ -1,13 +1,13 @@
 import React, {useReducer, useState} from "react";
 import {Routes, Route, useNavigate} from "react-router-dom";
 import HomePage from './HomeComponent';
-import ReservationComponent from './ReservationComponent';
+import ReservationForm from './ReservationForm';
 import ConfirmedReservation from './ConfirmedReservation';
 import {fetchAPI, submitAPI} from '../api.js';
 
 const Main = () => {
 
-  const initializeTimes = () => {
+  function initializeTimes() {
     const date = new Date();
     return fetchAPI(date);
   }
@@ -32,7 +32,7 @@ const Main = () => {
       occasion: occasion
     }
     if (submitAPI(formData)) {
-      console.log('success');
+      console.log(JSON.stringify(formData));
       navigate("/confirmation");
     }
   }
@@ -43,7 +43,7 @@ const Main = () => {
         <Route path="/" element={<HomePage />}></Route>
         {/* <Route path="/about" element={<AboutComponent />}></Route>
         <Route path="/menu" element={<MenuComponent />}></Route> */}
-        <Route path="/reservations" element={<ReservationComponent
+        <Route path="/reservations" element={<ReservationForm
             times={availableTimes} time={time} setTime={setTime}
             dispatch={dispatch} submit={submitForm}/>}></Route>
         {/* <Route path="/order" element={<OrderComponent />}></Route> */}
